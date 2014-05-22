@@ -33,7 +33,7 @@ def makeFolder():
 	now = datetime.now().strftime('%Y-%m-%d-%H:%M:%S')
 	#checkForExistence because it could already exist?
 	#has the name of the program and the time for directory name
-	path = 'videoFramesToPng_' + now
+	path = 'videoFramesToPng-' + now
 	os.makedirs(path)
 	#returns the filepath so other methods know where to access
 	return path
@@ -43,6 +43,8 @@ def convertFramesToPng(f):
 	vidcap = cv2.VideoCapture(f)
 	count = 1
 
+	
+	
 	#retval is used for looping
 	#frame is what gets written
 	if vidcap.isOpened():
@@ -51,6 +53,7 @@ def convertFramesToPng(f):
 		retval = False
 
 	if retval:
+		print "Getting all the frames in %s" % f
 		#fpath: the path where files get placed
 		fpath = makeFolder()
 
